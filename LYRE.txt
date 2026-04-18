@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LYRE | Dark Chrome Collection</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+        :root {
+            --bg-dark: #0f0f10;
+            --silver-glow: rgba(192, 192, 194, 0.4);
+            --brushed-silver: linear-gradient(145deg, #e6e6e8, #a8a8aa);
+            --text-silver: #c0c0c2;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .shipping-bar {
+            background: linear-gradient(to right, #1a1a1c, #333, #1a1a1c);
+            color: var(--text-silver);
+            width: 100%;
+            padding: 12px;
+            font-size: 0.7rem;
+            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .logo {
+            font-size: clamp(3rem, 12vw, 5.5rem);
+            font-weight: 700;
+            letter-spacing: 25px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            background: linear-gradient(to bottom, #fff 0%, #a8a8aa 50%, #777 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 10px;
+            color: var(--text-silver);
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px 100px 20px;
+        }
+
+        .product-card {
+            background: var(--brushed-silver);
+            padding: 2px;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(192, 192, 194, 0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 0 40px var(--silver-glow);
+        }
+
+        .inner-card {
+            background: #161618;
+            padding: 20px;
+            height: 100%;
+        }
+
+        .product-image {
+            position: relative;
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background: #000;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--white);
+            color: #000;
+            padding: 5px 15px;
+            font-size: 0.6rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .product-details h3 {
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            color: var(--white);
+            text-transform: uppercase;
+        }
+
+        .product-details p {
+            font-size: 0.75rem;
+            color: var(--text-silver);
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        .drop-section {
+            width: 100%;
+            max-width: 800px;
+            background: linear-gradient(145deg, #1a1a1c, #000);
+            border: 1px solid #333;
+            padding: 60px 40px;
+            text-align: center;
+            margin-bottom: 100px;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.05);
+        }
+
+        .stock-count {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: var(--brushed-silver);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--brushed-silver);
+            color: #000;
+            padding: 22px;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            transition: 0.4s;
+        }
+
+        .btn:hover {
+            letter-spacing: 5px;
+            background: #fff;
+        }
+
+        .btn-wa {
+            background: transparent;
+            color: #25D366;
+            border: 1px solid #25D366;
+        }
+
+        .btn-wa:hover {
+            background: #25D366;
+            color: #000;
+        }
+
+        .btn-vlog {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #444;
+        }
+
+        footer {
+            padding-bottom: 60px;
+            font-size: 0.7rem;
+            letter-spacing: 5px;
+            color: #444;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 600px) {
+            .logo { font-size: 2.5rem; letter-spacing: 12px; }
+            .product-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="shipping-bar">
+        Express Dhaka Delivery (1-2 Days) • Outside Dhaka: <a href="https://wa.me/880XXXXXXXXXX" target="_blank" rel="noopener" style="color:#fff;">WhatsApp Inquire</a>
+    </div>
+
+    <header>
+        <div class="logo">LYRE</div>
+        <div class="subtitle">Chrome Edition | 2026</div>
+    </header>
+
+    <section class="product-grid">
+        <div class="product-card">
+            <div class="inner-card">
+                <div class="badge">ORIGIN</div>
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800" alt="Origin">
+                </div>
+                <div class="product-details">
+                    <h3>THE ORIGIN TEE</h3>
+                    <p>Heavyweight 300GSM • Brushed Cotton</p>
+                    <span class="price">৳1,450</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="inner-card">
+                <div class="badge">LIMITED</div>
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=800" alt="Silver Mesh">
+                </div>
+                <div class="product-details">
+                    <h3>SILVER MESH BOXY</h3>
+                    <p>Relaxed Fit • Chrome Hardware</p>
+                    <span class="price">৳1,600</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="inner-card">
+                <div class="badge">PREMIUM</div>
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=800" alt="Grey Sample">
+                </div>
+                <div class="product-details">
+                    <h3>GREY SAMPLE TEE</h3>
+                    <p>Narayanganj Archive • Silver Label</p>
+                    <span class="price">৳1,300</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="inner-card">
+                <div class="badge">JAKARTA</div>
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1554568218-0f1715e72254?q=80&w=800" alt="Travel series">
+                </div>
+                <div class="product-details">
+                    <h3>GLOBAL TRAVELER</h3>
+                    <p>Lightweight Tech Fabric • 2026</p>
+                    <span class="price">৳1,800</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="drop-section">
+        <h2>MICRO-DROP 01</h2>
+        <div class="stock-count">25 PIECES ONLY</div>
+        <p style="color: var(--text-silver); font-weight: 300; line-height: 1.8;">
+            Hand-packed in rigid silver-chrome presentation boxes.<br>
+            A tribute to the journey from Dhaka to the World.
+        </p>
+        
+        <div class="btn-group">
+            <a href="https://ig.me/m/retro_7090" target="_blank" rel="noopener" class="btn">SECURE YOUR BOX (DM)</a>
+            <a href="https://wa.me/8801867172347" target="_blank" rel="noopener" class="btn btn-wa">WHATSAPP SUPPORT</a>
+            <a href="https://www.youtube.com/@ReTro_BD" target="_blank" rel="noopener" class="btn btn-vlog">WATCH THE JOURNEY</a>
+        </div>
+    </section>
+
+    <footer>
+        LYRE &copy; 2026 | DESIGNED FOR THE HUSTLE
+    </footer>
+
+</body>
+</html>
